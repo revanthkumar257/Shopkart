@@ -10,6 +10,7 @@
     window.adobeDataLayer.push(<%- JSON.stringify(initialPush) %>);
   </script>
   <!-- Adobe Launch / Analytics embed would be placed after the server push above -->
+  <script src="https://assets.adobedtm.com/21b53c73144b/e91b4a5d371e/launch-889ca7a6e623-development.min.js" async></script>
 </head>
 <body data-page-type="<%= initialPush?.page?.pageType %>">
   <header>
