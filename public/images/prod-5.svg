@@ -1,0 +1,14 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ceramic Cookware Set">
+  <defs>
+    <linearGradient id="p5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde2e4"/>
+      <stop offset="100%" stop-color="#fecdd3"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#p5)"/>
+  <rect x="180" y="190" width="280" height="160" rx="26" fill="#f8fafc" stroke="#0f172a" stroke-width="6"/>
+  <rect x="160" y="220" width="320" height="30" rx="14" fill="#0f172a" opacity="0.85"/>
+  <rect x="260" y="150" width="120" height="40" rx="10" fill="#0f172a" opacity="0.85"/>
+  <text x="120" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="28" font-weight="700">Ceramic Cookware Set</text>
+</svg>
+

@@ -1,0 +1,15 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mobiles slot 2">
+  <defs>
+    <linearGradient id="mo2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#mo2)"/>
+  <rect x="240" y="70" width="160" height="340" rx="32" fill="#0f172a" opacity="0.9"/>
+  <rect x="260" y="90" width="120" height="300" rx="26" fill="#111827"/>
+  <circle cx="320" cy="120" r="12" fill="#38bdf8"/>
+  <rect x="280" y="350" width="80" height="16" rx="8" fill="#38bdf8"/>
+  <text x="60" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="24" font-weight="800">Upload: mobiles-2.jpg/png</text>
+</svg>
+

@@ -1,0 +1,13 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Beauty slot 1">
+  <defs>
+    <linearGradient id="be1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde2f3"/>
+      <stop offset="100%" stop-color="#fbcfe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#be1)"/>
+  <rect x="210" y="110" width="220" height="260" rx="32" fill="#0f172a" opacity="0.85"/>
+  <rect x="230" y="130" width="180" height="220" rx="26" fill="#111827"/>
+  <text x="80" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="24" font-weight="800">Upload: beauty-1.jpg/png</text>
+</svg>
+

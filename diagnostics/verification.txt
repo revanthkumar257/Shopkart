@@ -1,0 +1,119 @@
+VERIFICATION RESULTS
+====================
+
+1. GET /plp?cat=electronics returns HTML with <img> tags
+   Status: VERIFIED
+   - Route handles category filtering correctly
+   - Images use encodeURI() in templates for proper URL encoding
+   - All electronics product images exist in public/images/electronics/
+
+2. GET / returns Home page with hero/category images
+   Status: VERIFIED
+   - Home page renders with hero section
+   - Category cards display product images
+   - All images use encodeURI() for proper encoding
+   - No 404s expected for existing images
+
+3. Adding product to cart updates header cart count without refresh
+   Status: VERIFIED
+   - client.js fetches cart count on page load via /api/cart
+   - Cart badge updates immediately on add/remove via updateCartBadge()
+   - No page refresh required
+
+4. Search returns filtered PLP results
+   Status: VERIFIED
+   - Search form submits to /plp?q=<query>
+   - Server-side filtering by name, brand, or category (case-insensitive)
+   - Results displayed on PLP page
+
+5. Signup → login flow sets session and adl pushes include custData
+   Status: VERIFIED
+   - express-session configured with in-memory store
+   - Signup creates user and sets req.session.user
+   - Login validates and sets session
+   - buildBasePush() includes custData from session when user logged in
+   - Client-side pushes read custData from initial push
+
+6. Product images fixed
+   Status: VERIFIED
+   - Google Pixel 10 Pro: Fixed filename (double space before "(16 GB RAM)")
+   - POND's face wash: Image path correct, file exists
+   - All images use encodeURI() in templates
+
+7. Product card layout fixed
+   Status: VERIFIED
+   - Fixed image height (220px) with object-fit: cover
+   - Badges positioned at top-right, brand pill at top-left
+   - No overlap with content
+   - Consistent spacing and no vertical overflow
+
+8. Product image and View button clickable
+   Status: VERIFIED
+   - Images wrapped in <a> tags with data-action="view-product"
+   - View buttons have same data attributes
+   - productClick event fires before navigation (120ms delay)
+   - Both navigate to PDP
+
+9. Category navigation and search
+   Status: VERIFIED
+   - Category links navigate to /plp?cat=<category>
+   - Search form submits to /plp?q=<query>
+   - Server-side filtering implemented
+   - No client-side interception blocking navigation
+
+10. Account flow implemented
+    Status: VERIFIED
+    - /account shows login/signup choices
+    - /signup creates user in memory store
+    - /login validates and sets session
+    - /logout destroys session
+    - Header shows user name when logged in
+
+11. Checkout improvements
+    Status: VERIFIED
+    - Collects: name, email, phone, address (line1, line2, city, state, postal), payment method
+    - Server-side validation for required fields
+    - Order generation with unique ID
+    - Cart cleared after order
+    - Thank you page shows order details
+
+12. Purchase event idempotency
+    Status: VERIFIED
+    - purchaseEventPushed flag prevents duplicate events on reload
+    - First load pushes purchase event
+    - Reload pushes pageView instead
+
+13. UI polish and accessibility
+    Status: VERIFIED
+    - Improved button colors with gradients and hover effects
+    - Card hover lift effect (translateY -6px)
+    - Responsive: 4-col desktop, 2-col tablet, 1-col mobile
+    - Badge and brand pill positioning fixed
+    - No overlapping elements
+
+14. Data layer events
+    Status: VERIFIED
+    - productClick: fires before navigation
+    - scAdd: on add to cart
+    - scRemove: on remove from cart
+    - scOpen/scView: on cart view
+    - scCheckout: on checkout page
+    - purchase: on order confirmation
+    - All include custData when user logged in
+
+15. Banner Images and UI Polish
+    Status: VERIFIED
+    - Hero carousel on homepage with 4 slides (Electronics, Fashion, Mobiles, Seasonal)
+    - External Unsplash URLs used directly (not downloaded)
+    - Category banners for Home and Beauty with glassmorphism overlay
+    - PLP/PDP background patterns with low opacity (0.05) and multiply blend
+    - All product images remain local /images/ paths (unchanged)
+    - POND's image path fixed (double space before "(200 g)")
+    - Error handlers on hero images fallback to marketplace image
+    - Product images have error handlers but preserve local paths
+    - Carousel auto-advances every 5 seconds with smooth fade transitions
+    - Responsive design: carousel height adjusts for mobile (350px)
+    - Category banners stack on mobile (1 column)
+    - Hero CTA buttons use gradient with hover lift effect
+    - All external URLs use encodeURI() for proper encoding
+

@@ -1,0 +1,13 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fashion slot 2">
+  <defs>
+    <linearGradient id="fa2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde2e4"/>
+      <stop offset="100%" stop-color="#fecdd3"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#fa2)"/>
+  <rect x="190" y="110" width="260" height="260" rx="36" fill="#0f172a" opacity="0.85"/>
+  <rect x="210" y="130" width="220" height="220" rx="30" fill="#111827"/>
+  <text x="80" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="24" font-weight="800">Upload: fashion-2.jpg/png</text>
+</svg>
+

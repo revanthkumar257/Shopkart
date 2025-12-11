@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> | ShopKart</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script>window.adobeDataLayer = window.adobeDataLayer || [];</script>
+  <script>
+    window.adobeDataLayer.push(<%- JSON.stringify(initialPush) %>);
+  </script>
+  <!-- Adobe Launch / Analytics embed would be placed after the server push above -->
+</head>
+<body data-page-type="<%= initialPush?.page?.pageType %>">
+  <header>
+    <div class="topbar">
+      <div class="logo"><a href="/" style="color:#fff;text-decoration:none;">ShopKart</a></div>
+      <form class="search" method="GET" action="/plp">
+        <input type="text" name="q" placeholder="Search for electronics, fashion, home and more" aria-label="Search products" value="<%= typeof searchQuery !== 'undefined' && searchQuery ? searchQuery : '' %>" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="actions">
+        <% if (user) { %>
+          <a href="/account" aria-label="Account"><%= user.name %></a>
+          <a href="/logout" aria-label="Logout">Logout</a>
+        <% } else { %>
+          <a href="/account" aria-label="Account">Account</a>
+        <% } %>
+        <a href="/cart" data-role="cart-link" aria-label="Cart">Cart <span class="cart-badge" data-role="cart-count"><%= cartCount %></span></a>
+      </div>
+    </div>
+    <div class="categories">
+      <a href="/plp?cat=electronics">Electronics</a>
+      <a href="/plp?cat=mobiles">Mobiles</a>
+      <a href="/plp?cat=fashion">Fashion</a>
+      <a href="/plp?cat=home">Home</a>
+      <a href="/plp?cat=beauty">Beauty</a>
+      <a href="/plp?cat=all">All</a>
+    </div>
+  </header>
+  <main>
+

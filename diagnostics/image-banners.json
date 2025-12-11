@@ -1,0 +1,53 @@
+[
+  {
+    "usage": "Homepage hero carousel - Slide 1",
+    "category": "Electronics",
+    "externalUrl": "https://images.unsplash.com/photo-1510552776732-03e61cf4b144",
+    "fallbackUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024"
+  },
+  {
+    "usage": "Homepage hero carousel - Slide 2",
+    "category": "Fashion",
+    "externalUrl": "https://images.unsplash.com/photo-1521334884684-d80222895322",
+    "fallbackUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024"
+  },
+  {
+    "usage": "Homepage hero carousel - Slide 3",
+    "category": "Mobiles",
+    "externalUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+    "fallbackUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024"
+  },
+  {
+    "usage": "Homepage hero carousel - Slide 4",
+    "category": "Seasonal promo",
+    "externalUrl": "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb",
+    "fallbackUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024"
+  },
+  {
+    "usage": "Category banner - Home & Decor",
+    "category": "Home",
+    "externalUrl": "https://images.unsplash.com/photo-1505691723518-36a5ac3be353",
+    "linkTo": "/plp?cat=home"
+  },
+  {
+    "usage": "Category banner - Beauty",
+    "category": "Beauty",
+    "externalUrl": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9",
+    "linkTo": "/plp?cat=beauty"
+  },
+  {
+    "usage": "PLP background pattern",
+    "category": "All products",
+    "externalUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024",
+    "opacity": "0.05",
+    "blendMode": "multiply"
+  },
+  {
+    "usage": "PDP background pattern",
+    "category": "All products",
+    "externalUrl": "https://images.unsplash.com/photo-1581091012184-5c4c11c3f024",
+    "opacity": "0.05",
+    "blendMode": "multiply"
+  }
+]
+

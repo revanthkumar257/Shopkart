@@ -1,0 +1,38 @@
+<%- include('partials/head', { title, initialPush, cartCount, user }) %>
+  <h2>Thank you for your order!</h2>
+  <p>Your order has been placed successfully. We'll send you a confirmation email shortly.</p>
+  <p><a href="/">Return to home</a> or <a href="/plp">continue shopping</a></p>
+  <div class="summary">
+    <h3>Order Summary</h3>
+    <p><strong>Order ID:</strong> <%= order.id %></p>
+    <p><strong>Customer:</strong> <%= order.customerName %></p>
+    <p><strong>Email:</strong> <%= order.email %></p>
+    <p><strong>Total:</strong> $<%= order.revenue.toFixed(2) %></p>
+    
+    <h4 style="margin-top:20px;">Items Ordered</h4>
+    <ul>
+      <% order.products.forEach((p) => { %>
+        <li><%= p.productName %> — Qty <%= p.qty %> — $<%= (p.price * p.qty).toFixed(2) %></li>
+      <% }) %>
+    </ul>
+    
+    <% if (order.shippingAddress) { %>
+      <h4 style="margin-top:20px;">Shipping Address</h4>
+      <p>
+        <%= order.shippingAddress.addressLine1 %><br/>
+        <% if (order.shippingAddress.addressLine2) { %>
+          <%= order.shippingAddress.addressLine2 %><br/>
+        <% } %>
+        <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %> <%= order.shippingAddress.postalCode %><br/>
+        Phone: <%= order.shippingAddress.phone %>
+      </p>
+    <% } %>
+    
+    <% if (order.paymentMethod) { %>
+      <h4 style="margin-top:20px;">Payment Method</h4>
+      <p><%= order.paymentMethod %></p>
+    <% } %>
+  </div>
+  <a class="button primary" href="/plp" style="margin-top:16px;">Continue shopping</a>
+<%- include('partials/footer') %>
+

@@ -1,0 +1,14 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Electronics slot 2">
+  <defs>
+    <linearGradient id="el2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#el2)"/>
+  <rect x="150" y="110" width="340" height="260" rx="28" fill="#0f172a" opacity="0.85"/>
+  <rect x="170" y="130" width="300" height="220" rx="24" fill="#111827"/>
+  <rect x="150" y="340" width="340" height="40" rx="20" fill="#2563eb" opacity="0.8"/>
+  <text x="70" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="26" font-weight="800">Upload: electronics-2.jpg/png</text>
+</svg>
+

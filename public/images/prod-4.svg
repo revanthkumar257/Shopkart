@@ -1,0 +1,14 @@
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Compact Air Purifier">
+  <defs>
+    <linearGradient id="p4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2f1"/>
+      <stop offset="100%" stop-color="#cfd8dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#p4)"/>
+  <rect x="230" y="110" width="180" height="260" rx="26" fill="#0f172a" opacity="0.85"/>
+  <rect x="250" y="130" width="140" height="200" rx="22" fill="#111827"/>
+  <rect x="230" y="330" width="180" height="30" rx="15" fill="#22d3ee" opacity="0.8"/>
+  <text x="120" y="430" fill="#0f172a" font-family="Segoe UI, Arial" font-size="28" font-weight="700">Compact Air Purifier</text>
+</svg>
+

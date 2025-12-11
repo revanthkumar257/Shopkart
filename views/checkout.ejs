@@ -1,0 +1,69 @@
+<%- include('partials/head', { title, initialPush, cartCount, user }) %>
+  <h2>Checkout</h2>
+  <% if (!items.length) { %>
+    <p>Your cart is empty. <a href="/plp">Add items</a> to continue.</p>
+  <% } else { %>
+    <% if (error) { %>
+      <div class="notice" style="background:#fee;border-color:#fcc;color:#c00;"><%= error %></div>
+    <% } %>
+    <div class="summary">
+      <p><strong>Total due:</strong> $<%= total.toFixed(2) %></p>
+      <form method="POST" action="/checkout">
+        <h3>Shipping Information</h3>
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input id="name" name="name" required placeholder="Jane Doe" value="<%= (typeof formData !== 'undefined' && formData && formData.name) ? formData.name : (user ? user.name : '') %>" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email" required placeholder="jane@example.com" value="<%= (typeof formData !== 'undefined' && formData && formData.email) ? formData.email : (user ? user.email : '') %>" />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input id="phone" name="phone" required placeholder="+1 234 567 8900" value="<%= (typeof formData !== 'undefined' && formData && formData.phone) ? formData.phone : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="addressLine1">Address Line 1 *</label>
+          <input id="addressLine1" name="addressLine1" required placeholder="123 Main Street" value="<%= (typeof formData !== 'undefined' && formData && formData.addressLine1) ? formData.addressLine1 : '' %>" />
+        </div>
+        <div class="form-group">
+          <label for="addressLine2">Address Line 2</label>
+          <input id="addressLine2" name="addressLine2" placeholder="Apt 4B" value="<%= (typeof formData !== 'undefined' && formData && formData.addressLine2) ? formData.addressLine2 : '' %>" />
+        </div>
+        <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label for="city">City *</label>
+            <input id="city" name="city" required placeholder="New York" value="<%= (typeof formData !== 'undefined' && formData && formData.city) ? formData.city : '' %>" />
+          </div>
+          <div>
+            <label for="state">State *</label>
+            <input id="state" name="state" required placeholder="NY" value="<%= (typeof formData !== 'undefined' && formData && formData.state) ? formData.state : '' %>" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Postal Code *</label>
+          <input id="postalCode" name="postalCode" required placeholder="10001" value="<%= (typeof formData !== 'undefined' && formData && formData.postalCode) ? formData.postalCode : '' %>" />
+        </div>
+        
+        <h3 style="margin-top:24px;">Payment Method *</h3>
+        <div class="form-group" style="display:flex;flex-direction:column;gap:8px;">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+            <input type="radio" name="paymentMethod" value="Card" required <%= (typeof formData !== 'undefined' && formData && formData.paymentMethod === 'Card') ? 'checked' : '' %> />
+            <span>Credit/Debit Card</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+            <input type="radio" name="paymentMethod" value="UPI" required <%= (typeof formData !== 'undefined' && formData && formData.paymentMethod === 'UPI') ? 'checked' : '' %> />
+            <span>UPI</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+            <input type="radio" name="paymentMethod" value="COD" required <%= (typeof formData !== 'undefined' && formData && formData.paymentMethod === 'COD') ? 'checked' : '' %> />
+            <span>Cash on Delivery (COD)</span>
+          </label>
+        </div>
+        
+        <button class="button primary" type="submit" style="margin-top:16px;">Place Order</button>
+      </form>
+    </div>
+  <% } %>
+<%- include('partials/footer') %>
+

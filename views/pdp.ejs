@@ -1,0 +1,55 @@
+<%- include('partials/head', { title, initialPush, cartCount }) %>
+  <div class="pdp-background" style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1581091012184-5c4c11c3f024') %>');"></div>
+  <div class="grid pdp-grid">
+    <div class="pdp-image">
+      <img src="<%= encodeURI(product.image) %>" alt="<%= product.name %>" onerror="this.onerror=null; this.src=this.src.startsWith('http') ? '/images/placeholders/missing-banner.png' : this.src;" />
+      <% if (product.badge) { %><div class="badge"><%= product.badge %></div><% } %>
+    </div>
+    <div class="pdp-content">
+      <p class="muted"><%= product.brand %> · <%= product.category %></p>
+      <h2><%= product.name %></h2>
+      <p><%= product.description %></p>
+      <div class="price-block">
+        <div class="deal-price">$<%= product.price %></div>
+        <div class="mrp">MRP: $<%= product.mrp %></div>
+        <div class="discount"><%= Math.round(((product.mrp - product.price)/product.mrp)*100) %>% off</div>
+      </div>
+      <ul class="bullets">
+        <% (product.bullets || []).forEach((b) => { %>
+          <li><%= b %></li>
+        <% }) %>
+      </ul>
+      <div class="summary">
+        <form id="add-to-cart-form"
+      data-product-name="<%= product.name %>"
+      data-category="<%= product.category %>"
+      data-brand="<%= product.brand %>"
+      data-price="<%= product.price %>"
+      data-position="<%= product.position %>"
+    >
+      <input type="hidden" name="id" value="<%= product.id %>" />
+      <div class="form-group">
+        <label for="qty">Quantity</label>
+        <input id="qty" name="qty" type="number" min="1" value="1" />
+      </div>
+      <button class="button primary" type="submit">Add to cart</button>
+    </form>
+    <div id="cart-notice" class="notice" style="display:none;margin-top:12px;"></div>
+  </div>
+    </div>
+  </div>
+  <section class="deck">
+    <h3>Specifications</h3>
+    <table class="spec-table">
+      <tbody>
+        <% (product.specs || []).forEach((row) => { %>
+          <tr>
+            <th><%= row[0] %></th>
+            <td><%= row[1] %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+<%- include('partials/footer') %>
+

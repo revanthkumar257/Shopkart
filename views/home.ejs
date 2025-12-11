@@ -1,0 +1,198 @@
+<%- include('partials/head', { title, initialPush, cartCount }) %>
+  <section class="hero-carousel">
+    <div class="carousel-slides">
+      <div class="carousel-slide active" 
+           data-bg-image="<%= encodeURI('https://images.unsplash.com/photo-1510552776732-03e61cf4b144') %>"
+           data-fallback="<%= encodeURI('https://images.unsplash.com/photo-1581091012184-5c4c11c3f024') %>"
+           style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1510552776732-03e61cf4b144') %>');">
+        <div class="carousel-content">
+          <h1>ShopKart — Everything you need, delivered fast</h1>
+          <p>Top deals on electronics, fashion, home essentials and more. Free delivery over ₹799.</p>
+          <a class="button primary hero-cta" href="/plp?cat=electronics">Shop Electronics</a>
+        </div>
+      </div>
+      <div class="carousel-slide" 
+           data-bg-image="<%= encodeURI('https://images.unsplash.com/photo-1521334884684-d80222895322') %>"
+           data-fallback="<%= encodeURI('https://images.unsplash.com/photo-1581091012184-5c4c11c3f024') %>"
+           style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1521334884684-d80222895322') %>');">
+        <div class="carousel-content">
+          <h1>Fashion Forward</h1>
+          <p>Discover the latest trends in fashion. Style that fits your lifestyle.</p>
+          <a class="button primary hero-cta" href="/plp?cat=fashion">Shop Fashion</a>
+        </div>
+      </div>
+      <div class="carousel-slide" 
+           data-bg-image="<%= encodeURI('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9') %>"
+           data-fallback="<%= encodeURI('https://images.unsplash.com/photo-1581091012184-5c4c11c3f024') %>"
+           style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9') %>');">
+        <div class="carousel-content">
+          <h1>Latest Mobiles</h1>
+          <p>Get the newest smartphones with cutting-edge technology and amazing deals.</p>
+          <a class="button primary hero-cta" href="/plp?cat=mobiles">Shop Mobiles</a>
+        </div>
+      </div>
+      <div class="carousel-slide" 
+           data-bg-image="<%= encodeURI('https://images.unsplash.com/photo-1542834369-f10ebf06d3cb') %>"
+           data-fallback="<%= encodeURI('https://images.unsplash.com/photo-1581091012184-5c4c11c3f024') %>"
+           style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1542834369-f10ebf06d3cb') %>');">
+        <div class="carousel-content">
+          <h1>Seasonal Specials</h1>
+          <p>Limited time offers on your favorite products. Don't miss out!</p>
+          <a class="button primary hero-cta" href="/plp">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+    </div>
+  </section>
+
+  <section class="category-banners">
+    <a href="/plp?cat=home" class="category-banner" style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1505691723518-36a5ac3be353') %>');">
+      <div class="banner-overlay">
+        <h3>Home & Decor</h3>
+        <p>Transform your space</p>
+      </div>
+    </a>
+    <a href="/plp?cat=beauty" class="category-banner" style="background-image: url('<%= encodeURI('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') %>');">
+      <div class="banner-overlay">
+        <h3>Beauty Essentials</h3>
+        <p>Look and feel great</p>
+      </div>
+    </a>
+  </section>
+
+  <section class="deck">
+    <h3>Deals of the Day</h3>
+    <div class="carousel">
+      <div class="deal-card">
+        <div class="pill">-25%</div>
+        <h4>Smart TVs</h4>
+        <p>Big screens, Dolby Vision, 120Hz</p>
+        <a href="/plp?cat=electronics" class="link">Explore deals</a>
+      </div>
+      <div class="deal-card">
+        <div class="pill">Bank offer</div>
+        <h4>Mobiles</h4>
+        <p>5G flagships with exchange bonus</p>
+        <a href="/plp?cat=mobiles" class="link">Upgrade now</a>
+      </div>
+      <div class="deal-card">
+        <div class="pill">Combo</div>
+        <h4>Home Essentials</h4>
+        <p>Cookware, purifiers, and more</p>
+        <a href="/plp?cat=home" class="link">Shop combos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="deck">
+    <h3>Shop by Category</h3>
+    <div class="category-cards">
+      <% const catFirst = (cat) => products.find(p => p.category.toLowerCase() === cat); %>
+      <% ['electronics','mobiles','fashion','home','beauty','all'].forEach((cat) => { const p = cat === 'all' ? products[0] : catFirst(cat); %>
+        <a class="cat-card" href="/plp?cat=<%= cat %>">
+          <div class="cat-thumb">
+            <% if (p) { %><img src="<%= encodeURI(p.image) %>" alt="<%= p.name %>" /><% } %>
+          </div>
+          <div class="cat-text">
+            <div class="cat-title"><%= cat.charAt(0).toUpperCase() + cat.slice(1) %></div>
+            <div class="muted">Top picks</div>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="deck">
+    <h3>Bestselling picks</h3>
+    <div class="grid">
+      <% products.slice(0,4).forEach((product, idx) => { %>
+        <div class="card">
+          <div class="card-image">
+            <a href="/pdp/<%= product.id %>" 
+               data-action="view-product"
+               data-product-id="<%= product.id %>"
+               data-product-name="<%= product.name %>"
+               data-product-category="<%= product.category %>"
+               data-brand="<%= product.brand %>"
+               data-price="<%= product.price %>"
+               data-position="<%= product.position %>"
+               data-href="/pdp/<%= product.id %>"
+               style="display:block;width:100%;height:100%;">
+              <img src="<%= encodeURI(product.image) %>" alt="<%= product.name %>" onerror="this.onerror=null; this.src=this.src.startsWith('http') ? '/images/placeholders/missing-banner.png' : this.src;" />
+            </a>
+            <% if (product.badge) { %><div class="badge"><%= product.badge %></div><% } %>
+            <div class="brand-pill"><%= product.brand %></div>
+          </div>
+          <h3><%= product.name %></h3>
+          <p class="muted"><%= product.brand %> · <%= product.category %></p>
+          <p class="price">$<%= product.price %> <span class="muted" style="text-decoration:line-through;">$<%= product.mrp %></span></p>
+          <div class="stars">★★★★★</div>
+          <a
+            class="button secondary"
+            href="/pdp/<%= product.id %>"
+            data-action="view-product"
+            data-product-id="<%= product.id %>"
+            data-product-name="<%= product.name %>"
+            data-product-category="<%= product.category %>"
+            data-brand="<%= product.brand %>"
+            data-price="<%= product.price %>"
+            data-position="<%= product.position %>"
+            data-href="/pdp/<%= product.id %>"
+          >
+            View
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="deck">
+    <h3>Trending now</h3>
+    <div class="grid">
+      <% products.slice(4,8).forEach((product, idx) => { %>
+        <div class="card">
+          <div class="card-image">
+            <a href="/pdp/<%= product.id %>" 
+               data-action="view-product"
+               data-product-id="<%= product.id %>"
+               data-product-name="<%= product.name %>"
+               data-product-category="<%= product.category %>"
+               data-brand="<%= product.brand %>"
+               data-price="<%= product.price %>"
+               data-position="<%= product.position %>"
+               data-href="/pdp/<%= product.id %>"
+               style="display:block;width:100%;height:100%;">
+              <img src="<%= encodeURI(product.image) %>" alt="<%= product.name %>" onerror="this.onerror=null; this.src=this.src.startsWith('http') ? '/images/placeholders/missing-banner.png' : this.src;" />
+            </a>
+            <% if (product.badge) { %><div class="badge"><%= product.badge %></div><% } %>
+            <div class="brand-pill"><%= product.brand %></div>
+          </div>
+          <h3><%= product.name %></h3>
+          <p class="muted"><%= product.brand %> · <%= product.category %></p>
+          <p class="price">$<%= product.price %> <span class="muted" style="text-decoration:line-through;">$<%= product.mrp %></span></p>
+          <div class="stars">★★★★☆</div>
+          <a
+            class="button secondary"
+            href="/pdp/<%= product.id %>"
+            data-action="view-product"
+            data-product-id="<%= product.id %>"
+            data-product-name="<%= product.name %>"
+            data-product-category="<%= product.category %>"
+            data-brand="<%= product.brand %>"
+            data-price="<%= product.price %>"
+            data-position="<%= product.position %>"
+            data-href="/pdp/<%= product.id %>"
+          >
+            View
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+<%- include('partials/footer') %>
+
